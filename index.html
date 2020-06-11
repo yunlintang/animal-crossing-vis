@@ -5,7 +5,7 @@
         <title>DSC 106 Final Project</title>
 
         <meta name='description' content='final project for DSC 106'>
-        <meta name='author' content='Yunlin Tang Yuxuan Ma'>
+        <meta name='author' content='Yunlin Tang/Yuxuan Ma'>
         <meta charset='UTF-8'>
 
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">   
@@ -23,6 +23,8 @@
         <script src='./data/fishNorth.js'></script>
         <script src='./data/fishSouth.js'></script>
         <script src='./data/villagers.js'></script>
+        <script src='./data/gameD.js'></script>
+        <script src='./data/switch.js'></script>
 
     </head>
 
@@ -48,12 +50,36 @@
 
             <section id='intro'>
                 <h1>Introduction</h1>
+
+                <div class='text-block'>
+                    <p> These two charts show the popularity of certain searching keywords on google,
+                        such as 'switch', 'animal crossing', 'pokemon' and 'mario'.
+                    </p>
+                </div>
+
+                <div id='intro_chart'>
+                    <div id = 'line'></div>
+                    <br>
+                    <div id = 'container'></div>
+                </div>
+
+                <a href='https://trends.google.com/trends/?geo=US' target=_blank id='source'>Data Source</a>
+
+                <br>
             </section>
 
             <br>
             
             <section id='villagers'>
                 <h1>Villagers</h1>
+
+                <div class='text-block'>
+                    <p>In Animal Crossing: New Horizons, there are total 391 villagers with 39 unique species.
+                        Users can invite at most 10 different villagers to your island.
+                        Below are three charts showing some basic stats about the villagers, such as their genders, hobbies, species.
+                        From these charts, we can see the variety of the character system in game.
+                    </p>
+                </div>
 
                 <div id='villagers_flex_container'>
                     <div id='villagers_flex_item1'></div>
@@ -63,19 +89,30 @@
                 <br><br>
 
                 <div id='villagers_column'></div>
-
-                <br>
+                <p style="font-size: 14px;text-align: center">TIPS: you can click the column to see the images of villagers in that species!</p>
 
                 <div>
                     <h2 id='villagers_table_title'></h2>
                     <table id='villagers_table'></table>
                 </div>
+                <a href='https://animalcrossing.fandom.com/wiki/Villager_list_(New_Horizons)' target=_blank id='source'>Data Source</a>
+                <br>
             </section>
 
             <br>
 
             <section id='collects'>
                 <h1>Collections</h1>
+
+                <div class='text-block'>
+                    <p> In this game, you can collect many items such as fish, bug, artwork, and fossil.
+                        Specifically, there are 80 different types of fish and 80 of bug as well. 
+                        For each month, different types of creatures are available for collection (differed by north/south).
+                        This design is imitating the acutual biological system of the nature.
+                    </p>
+                </div>
+
+                <br>
 
                 <button class='pure-button' id='northButton'>Northern Hemisphere</button>
                 <button class='pure-button' id='southButton'>Southern Hemisphere</button>
@@ -84,6 +121,8 @@
                 <div id='collects_fish_time'></div>
                 <br>
                 <div id='collects_bug_time'></div>
+                <a href='https://animalcrossing.fandom.com/wiki/Animal_Crossing_Wiki' target=_blank id='source'>Data Source</a>
+                <br>
             </section>
 
             <br>
@@ -91,13 +130,39 @@
             <section id='reviews'>
                 <h1>Reviews</h1>
 
-                <div>
-                    <img src='./image/wordcloud_sized.jpg' width=400/>
-                </div>
+                <table id='reviews_table_nook'>
+                    <tr>
+                        <td>
+                            <img src='./image/nook_low.png' id='nook'/>
+                        </td>
+
+                        <td>
+                            <div class='speech-bubble'>
+                                <p class='speech-bubble-text'>Hi, I am your personal travel agent Tom Nook. 
+                                    I can help you build your desired paradise island. 
+                                    In the wordcloud below, there are numbers of reviews written by previous customers who
+                                    have purchased our service. There are also some execellent examples of islands shown below.
+                                    Hope you enjoy your journey on your own island!
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
 
                 <br>
 
-                <table id='reviews_table'>
+                <div id='reviews_wordcloud'>
+                    <img src='./image/wordcloud_sized.jpg'/>
+                </div>
+                <a href='https://www.kaggle.com/jessemostipak/animal-crossing/data?select=user_reviews.csv' target=_blank id='source'>Data Source</a>
+
+                <br>
+
+                <br>
+
+                <table id='reviews_table_video'>
                     <tr>
                         <td><iframe src='https://www.youtube.com/embed/Zne4nYYt7VY' allowfullscreen></iframe></td>
                         <td><iframe src='https://www.youtube.com/embed/80EKMiTKOVg' allowfullscreen></iframe></td>
@@ -110,7 +175,9 @@
                         <td><iframe src='https://www.youtube.com/embed/wWtdAUw0zFo'></iframe></td>
                     </tr>
                 </table>
+
             </section>
+            <br><br>
 
         </main>
 
