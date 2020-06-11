@@ -1,20 +1,7 @@
-/*
-async function loadJSON(path){
-    let response = await fetch(path);
-    let dataset = await response.json();
-    return dataset;
-}
-*/
-
 document.addEventListener('DOMContentLoaded',init,false);
 
+
 function init(){
-    /*
-    var villager = loadJSON('./data/villagers.json');
-    villager.then(function(s) {
-        renderVillagersColumn(s);
-        renderVillagersPie(s);
-    }) */
     renderVillagersPie(villagers);
     renderVillagersColumn(villagers);
     lineChart(switches);
@@ -230,7 +217,7 @@ function renderVillagersColumn(data){
 }
 
 function drawVillagersTable(category,data){
-    console.log(data)
+    
     /* display the selected species title */
     document.getElementById('villagers_table_title').innerHTML = category;
 
@@ -267,42 +254,24 @@ function drawVillagersTable(category,data){
     }
 }
 
-/*
-var fishNorth = loadJSON('./data/fishNorth.json');
-var fishSouth = loadJSON('./data/fishSouth.json');
-var bugNorth = loadJSON('./data/bugNorth.json');
-var bugSouth = loadJSON('./data/bugSouth.json');
-*/
-
 var buttonNorth = document.getElementById('northButton');
 var buttonSouth = document.getElementById('southButton');
 buttonNorth.addEventListener('click', function(){
-    /*
-    fishNorth.then(function(s){
-        renderFishTimeLine(s,true)
-    });
-    bugNorth.then(function(s){
-        renderBugTimeLine(s,true)
-    })
-    */
    renderFishTimeLine(fishNorth,true);
    renderBugTimeLine(bugNorth, true);
 });
 buttonSouth.addEventListener('click', function(){
-    /*
-    fishSouth.then(function(s){
-        renderFishTimeLine(s,false)
-    });
-    bugSouth.then(function(s){
-        renderBugTimeLine(s,false)
-    })
-    */
    renderFishTimeLine(fishSouth, false);
    renderBugTimeLine(bugSouth, false);
 });
 
 
 function renderFishTimeLine(data,north){
+    let preimages = Object.values(fishImages);
+    $(preimages).each(function(){
+        var preimg = $('<img />').attr('src', this);
+    });
+
     if (north){
         var timeline_title = 'Available Types of Fish in Each Month (North)';
         var timeline_data = [{
@@ -423,7 +392,7 @@ function renderFishTimeLine(data,north){
             useHTML: true,
             formatter: function(){
                 return drawCollectsTooltip(this.point.name,data)
-            }
+            },
         },
         credits: {
             enabled: false
@@ -432,6 +401,11 @@ function renderFishTimeLine(data,north){
 }
 
 function renderBugTimeLine(data,north){
+    let preimages = Object.values(bugImages);
+    $(preimages).each(function(){
+        var preimg = $('<img />').attr('src', this);
+    });
+
     if (north){
         var timeline_title = 'Available Types of Bug in Each Month (North)';
         var timeline_data = [{
@@ -552,7 +526,7 @@ function renderBugTimeLine(data,north){
             useHTML: true,
             formatter: function(){
                 return drawCollectsTooltip(this.point.name,data)
-            }
+            },
         },
         credits: {
             enabled: false
@@ -562,6 +536,7 @@ function renderBugTimeLine(data,north){
 
 /* draw the images on tooltips */
 function drawCollectsTooltip(name,data){
+
     let images = '';
     let cnt = 0;
     let total = 0;
@@ -579,15 +554,16 @@ function drawCollectsTooltip(name,data){
             }
         }
     }
+    
+    let result = '<p style="font-size:13px;font-weight:bold">'+name+': '+total+' in total</p><table><tr>'+images+'</tr></table>'
 
-    return '<p style="font-size:13px;font-weight:bold">'+name+': '+total+' in total</p><table><tr>'+images+'</tr></table>';
+    return result;
 }
 
 
 function lineChart(switches){
 	
 	newData = extractData(switches);
-	//console.log(newData);
 	
 	var chart = Highcharts.chart('line',{
         chart:{
@@ -626,7 +602,6 @@ function lineChart(switches){
 		tooltip: {
 			useHTML: true,
 			formatter: function() {
-				//console.log(this);
 				if((this.x >= Date.parse('2017-03-05'))&&(this.x <= Date.parse('2017-04-02'))){
 					var game1 = 'The Legend of Zelda: Breath of the Wild';
 					var game2 = 'Mario Kart 8 Deluxe'
@@ -692,7 +667,7 @@ function areaChart(games){
         mario.push([games[i].Week, games[i]["mario: (Worldwide)"]]);
 	}
 	var xAxis = getDate(games)
-	console.log(xAxis);
+	
 	Highcharts.chart('container',{
 		chart: {
 			type: 'area'
