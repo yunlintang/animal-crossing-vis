@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>DSC 106 Final Project</title>
+
+        <meta name='description' content='final project for DSC 106'>
+        <meta name='author' content='Yunlin Tang Yuxuan Ma'>
+        <meta charset='UTF-8'>
+
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">   
+        <link rel='stylesheet' href='style.css'>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat%7CPaytone+One&display=swap" rel="stylesheet" />
+
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/timeline.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+        <script src='./data/bugNorth.js'></script>
+        <script src='./data/bugSouth.js'></script>
+        <script src='./data/fishNorth.js'></script>
+        <script src='./data/fishSouth.js'></script>
+        <script src='./data/villagers.js'></script>
+
+    </head>
+
+    <body>
+        <header>
+            <div id='header'>
+                <img src='./image/title.png'>
+            </div>
+
+            <br>
+
+            <div class='topnav'>
+                <a href='#intro'>Intro</a>
+                <a href='#villagers'>Villagers</a>
+                <a href='#collects'>Collects</a>
+                <a href='#reviews'>Reviews</a>
+            </div>
+
+            <br>
+        </header>
+
+        <main>
+
+            <section id='intro'>
+                <h1>Introduction</h1>
+            </section>
+
+            <br>
+            
+            <section id='villagers'>
+                <h1>Villagers</h1>
+
+                <div id='villagers_flex_container'>
+                    <div id='villagers_flex_item1'></div>
+                    <div id='villagers_flex_item2'></div>
+                </div>
+
+                <br><br>
+
+                <div id='villagers_column'></div>
+
+                <br>
+
+                <div>
+                    <h2 id='villagers_table_title'></h2>
+                    <table id='villagers_table'></table>
+                </div>
+            </section>
+
+            <br>
+
+            <section id='collects'>
+                <h1>Collections</h1>
+
+                <button class='pure-button' id='northButton'>Northern Hemisphere</button>
+                <button class='pure-button' id='southButton'>Southern Hemisphere</button>
+                <br><br>
+
+                <div id='collects_fish_time'></div>
+                <br>
+                <div id='collects_bug_time'></div>
+            </section>
+
+            <br>
+
+            <section id='reviews'>
+                <h1>Reviews</h1>
+
+                <div>
+                    <img src='./image/wordcloud_sized.jpg' width=400/>
+                </div>
+
+                <br>
+
+                <table id='reviews_table'>
+                    <tr>
+                        <td><iframe src='https://www.youtube.com/embed/Zne4nYYt7VY' allowfullscreen></iframe></td>
+                        <td><iframe src='https://www.youtube.com/embed/80EKMiTKOVg' allowfullscreen></iframe></td>
+                        <td><iframe src='https://www.youtube.com/embed/bVx3Xp9OVE8' allowfullscreen></iframe></td> 
+                    </tr>
+
+                    <tr>
+                        <td><iframe src='https://www.youtube.com/embed/3z-teh_On5U' allowfullscreen></iframe></td>
+                        <td><iframe src='https://www.youtube.com/embed/2R5CP3xpUwk'></iframe></td>
+                        <td><iframe src='https://www.youtube.com/embed/wWtdAUw0zFo'></iframe></td>
+                    </tr>
+                </table>
+            </section>
+
+        </main>
+
+        <footer> 
+            
+        </footer>
+    </body>
+
+    <script src='final.js'></script>
+</html>
