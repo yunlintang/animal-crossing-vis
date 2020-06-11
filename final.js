@@ -399,6 +399,9 @@ function renderFishTimeLine(data,north){
                 fontWeight: 'normal'
             }
         },
+        subtitle: {
+            text: '80 types of fish in total'
+        },
         xAxis: {
             visible: false
         },
@@ -524,6 +527,9 @@ function renderBugTimeLine(data,north){
                 color: '#665d4a',
                 fontWeight: 'normal'
             }
+        },
+        subtitle: {
+            text: '80 types of bugs in total'
         },
         xAxis: {
             visible: false
